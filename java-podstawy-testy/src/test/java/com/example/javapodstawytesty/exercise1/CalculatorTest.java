@@ -1,11 +1,35 @@
-package com.example.javapodstawytesty;
+package com.example.javapodstawytesty.exercise1;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class CalculatorTest {
+
+    private Calculator calculator;
+
+    //METODY UŻYWANE DODATKOWO - wykonywana w tle ---------------------------------------------------------------------
+    @BeforeAll // wykona sie przed wszystkimi testami i musi być statyczna!
+    static void init(){
+        System.out.println("@BeforeAll invoked");
+    }
+
+    @BeforeEach //wykonuje sie przed każdym testem!
+    void setUp(){
+        System.out.println("@BeaforeEach invoked");
+        calculator = new Calculator();
+    }
+
+    @AfterEach //wykonuje sie po każdym teście!
+    void tearDown() {
+        System.out.println("@AfterEach invoked");
+    }
+
+    @AfterAll // wykona sie po wszystkich testach i musi być statyczna!
+    static void reset(){
+        System.out.println("@AfterAll invoked");
+    }
+    // -----------------------------------------------------------------------------------------------------------------
 
     @Test
     public void testSumHappyPath(){
@@ -13,7 +37,6 @@ class CalculatorTest {
         double a = 2.0;
         double b = 2.0;
         double expectedResult = 4.0;
-        Calculator calculator = new Calculator();
 
         //WHEN
         double actualResult = calculator.sum(a,b);
@@ -29,7 +52,6 @@ class CalculatorTest {
         int a = 2;
         int b = 0;
         int expectedResult = 0;
-        Calculator calculator = new Calculator();
 
         // WHEN
         int actualResult = calculator.division2(a, b);
@@ -44,7 +66,6 @@ class CalculatorTest {
         int a = 6;
         int b = 4;
         int expectedSubResult = 2;
-        Calculator calculator = new Calculator();
 
         //WHEN
         int actualSubResult = calculator.subtract(a, b);
@@ -59,7 +80,6 @@ class CalculatorTest {
         int a = 5;
         int b = 5;
         int expectedMulResult = 25;
-        Calculator calculator = new Calculator();
 
         //WHEN
         int actualResult = calculator.multiply(a, b);

@@ -1,4 +1,4 @@
-package com.example.javapodstawytesty;
+package com.example.javapodstawytesty.exercise1;
 
 public class Calculator {
 

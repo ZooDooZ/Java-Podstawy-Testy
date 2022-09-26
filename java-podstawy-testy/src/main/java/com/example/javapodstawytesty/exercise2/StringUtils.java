@@ -1,4 +1,4 @@
-package com.example.javapodstawytesty;
+package com.example.javapodstawytesty.exercise2;
 
 import java.util.Objects;
 
@@ -40,5 +40,10 @@ public class StringUtils {
 //
 //    }
 
+
+    //Napisz program zamieniajacy wszystkie wystapienia podanego 'char' w stringu.
+    public static String changeLetter(String name){
+        return name.replace("o", "i");
+    }
 
 }
